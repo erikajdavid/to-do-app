@@ -61,6 +61,7 @@ form button {
 .displayTask i {
     width: 7%;
     text-align: center;
+    cursor: pointer;
 }
 
 .updateTask {
@@ -81,4 +82,5 @@ form button {
 .updateTask button {
     font-size: 0.8rem;
     height: auto;
+    cursor: pointer;
 }
