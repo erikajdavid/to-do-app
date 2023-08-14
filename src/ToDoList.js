@@ -33,26 +33,24 @@ function ToDoList({ tasks, removeTask, editTask }) {
     return (
         <ul>
             {tasks.map(task => (
-                <li className="displayTask" key={task.id}>
-                    <div>
-                        {editingTasks[task.id] ? (
-                            <div>
-                                <input
-                                    type="text"
-                                    defaultValue={task.content}
-                                    onChange={(e) => handleInputChange(task.id, e.target.value)}
-                                    onBlur={() => handleSave(task.id)}
-                                />
-                                <button onClick={() => handleSave(task.id)}>Save</button>
-                            </div>
-                        ) : (
-                            <div>
-                                <p>{task.content}</p>
-                                <i className="fa-regular fa-pen-to-square faEdit" onClick={() => handleEdit(task.id)}></i>
-                                <i className="fa-regular fa-trash-can faTrash" onClick={() => removeTask(task.id)}></i>
-                            </div>
-                        )}
-                    </div>
+                <li key={task.id}>
+                    {editingTasks[task.id] ? (
+                        <div className="updateTask">
+                            <input
+                                type="text"
+                                defaultValue={task.content}
+                                onChange={(e) => handleInputChange(task.id, e.target.value)}
+                                onBlur={() => handleSave(task.id)}
+                            />
+                            <button onClick={() => handleSave(task.id)}>Update</button>
+                        </div>
+                    ) : (
+                        <div className="displayTask">
+                            <p>{task.content}</p>
+                            <i className="fa-regular fa-pen-to-square faEdit" onClick={() => handleEdit(task.id)}></i>
+                            <i className="fa-regular fa-trash-can faTrash" onClick={() => removeTask(task.id)}></i>
+                        </div>
+                    )}
                 </li>
             ))}
         </ul>
