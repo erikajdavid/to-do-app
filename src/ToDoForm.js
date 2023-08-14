@@ -25,7 +25,7 @@ const ToDoForm = ( {addTask} ) => {
                 placeholder="What do you need to do today?"
                 required
             />
-            <button type="submit"><i class="fa-solid fa-plus faPlus"></i></button>
+            <button type="submit"><i className="fa-solid fa-plus faPlus"></i></button>
         </form>
     )
 }
