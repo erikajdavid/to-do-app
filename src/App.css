@@ -23,6 +23,7 @@ form input {
 
 form button {
     width: 10%;
+    cursor: pointer;
 }
 
 .displayTask {
@@ -35,5 +36,8 @@ form button {
 
 .displayTask p {
     width: 80%;
+}
 
+.faTrash {
+cursor: pointer;
 }

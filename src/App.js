@@ -9,18 +9,23 @@ function App() {
 
     const addTask = (task) => {
         const newTask = {
-            id: uuidv4(), // Generate a unique ID
+            id: uuidv4(), // Generates a unique ID
             content: task,
         };
         console.log(newTask);
         setTasks([...tasks, newTask]);
     }
 
+    const removeTask = (taskId) => {
+        const updatedTasks = tasks.filter(task => task.id !== taskId);
+        setTasks(updatedTasks);
+    }
+
     return (
         <div className="App">
             <h1>Get shit done</h1>
             <ToDoForm addTask={addTask} />
-            <ToDoList tasks={tasks} />
+            <ToDoList tasks={tasks} removeTask={removeTask} />
         </div>
     );
 }
