@@ -12,6 +12,7 @@ function App() {
 
     return (
         <div className="App">
+          <h1>Get shit done</h1>
             <ToDoForm addTask={addTask} />
             <ToDoList tasks={tasks} />
         </div>
