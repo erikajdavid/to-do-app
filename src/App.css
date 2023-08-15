@@ -16,8 +16,17 @@ ul {
     margin: 0;
 }
 
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
 .App {
-    max-width: 450px;
+    margin-top: 3rem;
+    width: 450px;
     padding: 2rem;
     border: 1px solid black;
 }
