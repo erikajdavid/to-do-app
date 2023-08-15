@@ -56,6 +56,7 @@ form button {
 
 .displayTask p {
     width: 86%;
+    padding-left: 0.5rem;
 }
 
 .displayTask i {
@@ -83,4 +84,8 @@ form button {
     font-size: 0.8rem;
     height: auto;
     cursor: pointer;
+}
+
+.completed {
+    color: white;
 }

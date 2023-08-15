@@ -4,6 +4,8 @@ import './App.css';
 function ToDoList({ tasks, removeTask, editTask }) {
     const [editingTasks, setEditingTasks] = useState({});
     const [editedContents, setEditedContents] = useState({});
+    const [completedTasks, setCompletedTasks] = useState({}); 
+
     
     const handleEdit = (taskId) => {
         setEditingTasks(prevState => ({
@@ -30,6 +32,14 @@ function ToDoList({ tasks, removeTask, editTask }) {
         }));
     }
 
+    const toggleComplete = (taskId) => {
+        setCompletedTasks(prevState => ({
+            ...prevState,
+            [taskId]: !prevState[taskId], 
+        }));
+    }
+
+
     return (
         <ul>
             {tasks.map(task => (
@@ -45,7 +55,12 @@ function ToDoList({ tasks, removeTask, editTask }) {
                             <button onClick={() => handleSave(task.id)}>Update</button>
                         </div>
                     ) : (
-                        <div className="displayTask">
+                        <div className={`displayTask ${completedTasks[task.id] ? 'completed' : ''}`}>
+                            {completedTasks[task.id] ? (
+                                <i className="fa-solid fa-check" onClick={() => toggleComplete(task.id)}></i>
+                            ) : (
+                                <i className="fa-regular fa-circle faCircle" onClick={() => toggleComplete(task.id)}></i>
+                            )}
                             <p>{task.content}</p>
                             <i className="fa-regular fa-pen-to-square faEdit" onClick={() => handleEdit(task.id)}></i>
                             <i className="fa-regular fa-trash-can faTrash" onClick={() => removeTask(task.id)}></i>
